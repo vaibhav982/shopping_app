@@ -1,38 +1,61 @@
 # shopping_app
 
-A new Flutter project.
+A new shopping app project
 
-## Getting Started
+## Steps to Run This Project
 
-This project is a starting point for a Flutter application.
+### 1. Set Up the API Server
+- Ensure you have [Bun](https://bun.sh/) installed on your system.
+- Navigate to the API server directory in your terminal.
+- Install the server dependencies by running:
+  ```bash
+  bun install
+  ```
+- Start the server by running:
+  ```bash
+  bun run index.ts
+  ```
+- Verify that the server is running successfully. You should see a message indicating the server has started.
 
-A few resources to get you started if this is your first Flutter project:
+### 2. Find Your Local IP Address
+- Open a terminal on your development machine.
+- Run the following command:
+    - On macOS or Linux: `ifconfig`
+    - On Windows: `ipconfig`
+- Look for the IPv4 address under your active network interface (usually "en0" on macOS, "Ethernet" or "Wi-Fi" on Windows).
+- Note down this IP address (e.g., 192.168.1.36).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 3. Configure the Flutter App
+- Open the project in your preferred IDE or code editor.
+- Locate the `main.dart` file in the lib directory.
+- Find the `baseUrl` variable.
+- Replace the existing IP address with your local IP address noted in step 2.
+- Save the file.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 4. Install Flutter Dependencies
+- Open a terminal in your Flutter project's root directory.
+- Run the following command to fetch and install the required packages:
+  ```
+  flutter pub get
+  ```
 
-##Project Structure
+### 5. Run the Flutter App
+- Ensure you have a device connected (physical device or emulator).
+- In the terminal, run:
+  ```
+  flutter run
+  ```
+- If you have multiple devices available, you'll be prompted to select one.
+- Choose your desired device by entering the corresponding number.
 
-lib/: Contains the main Flutter application files
+### 6. Troubleshooting
+- If you encounter a "Connection refused" error, double-check that:
+    - The API server is running.
+    - You've entered the correct IP address in `main.dart`.
+    - Your device/emulator and development machine are on the same network.
+- For any other issues, refer to the project's documentation or seek help in the project's support channels.
 
-bloc/: Contains business logic components (CartCubit, CheckoutCubit)
-
-models/: Defines data models, such as Product
-
-widgets/: Custom widgets used across the app, such as CartItem, CartSummary
-
-pages/: Screens in the app, such as CartPage, CheckoutPage
-
-Key Features
-
-Product list display with add-to-cart functionality
-
-Promotion discounts applied at checkout
-
-Checkout flow using a CheckoutCubit for managing state
-
-Custom success and empty cart UI views
+### 7. Additional Notes
+- Ensure your firewall isn't blocking the connection.
+- If using a physical device, make sure it's connected to the same Wi-Fi network as your development machine.
+- For security reasons, avoid committing the `main.dart` file with your local IP address to version control.

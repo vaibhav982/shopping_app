@@ -7,6 +7,8 @@ import 'package:shopping_app/bloc/product/product_cubit.dart';
 import 'data/repositories/product_repository.dart';
 import 'pages/product_list_page.dart';
 
+const String baseUrl = 'http://192.168.1.36:8080';
+
 void main() {
   final productRepository = ProductRepository();
   runApp(MyApp(productRepository: productRepository));

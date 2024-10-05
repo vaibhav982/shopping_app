@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:shopping_app/main.dart';
 
 import '../../models/product.dart';
 import 'checkout_state.dart';
@@ -18,7 +19,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       final response = await http.post(
         //192.168.1.36
         //192.168.190.105
-        Uri.parse('http://192.168.1.36:8080/orders/checkout'),
+        Uri.parse('$baseUrl/orders/checkout'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({'products': products.map((e) => e.id).toList()}),
       );
